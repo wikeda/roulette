@@ -8,20 +8,16 @@
   <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-  <header class="header">
-    <label for="slot-count">枠数:</label>
-    <select id="slot-count"></select>
-  </header>
   <main class="main">
     <div class="canvas-wrap">
       <div id="pointer" aria-hidden="true"></div>
       <canvas id="roulette-canvas"></canvas>
     </div>
-    <button id="spin-button" class="spin-btn">回転</button>
+    <div class="controls">
+      <button id="spin-button" class="spin-btn">回転</button>
+      <select id="slot-count"></select>
+    </div>
   </main>
-  <section id="result-area" aria-live="polite" class="result">
-    <p id="result-text">ルーレットを回してください</p>
-  </section>
 
   <script src="js/utils.js"></script>
   <script src="js/roulette.js"></script>

@@ -1,4 +1,5 @@
 (function () {
+  // Ensure 10+ segments by duplicating labels when base count is small.
   const SLOT_EXPANSION_RULES = {
     2: 10,
     3: 12,
