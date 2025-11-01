@@ -23,6 +23,7 @@
       ctx.closePath();
 
       const label = slotLabels[i];
+      // Map identical labels (even duplicated) to the same color.
       const fillColor = PALETTE[(label - 1) % PALETTE.length];
       ctx.fillStyle = fillColor;
       ctx.fill();

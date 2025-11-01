@@ -1,5 +1,6 @@
 <<<<<<< Updated upstream
 (function () {
+  // Ensure 10+ segments by duplicating labels when base count is small.
   const SLOT_EXPANSION_RULES = {
     2: 10,
     3: 12,
@@ -13,7 +14,7 @@
 
   const canvas = document.getElementById('roulette-canvas');
   const selectEl = document.getElementById('slot-count');
-  const resultEl = document.getElementById('result-text');
+  const statusEl = document.getElementById('status-message');
   const spinBtn = document.getElementById('spin-button');
 
   let isSpinning = false;
@@ -47,8 +48,8 @@
     setRotation(currentRotation);
   }
 
-  function resetResult() {
-    resultEl.textContent = 'ルーレットを回してください';
+  function setStatus(message) {
+    statusEl.textContent = message;
   }
 
   function populateSelect() {
@@ -71,6 +72,7 @@
     isSpinning = true;
     selectEl.disabled = true;
     spinBtn.disabled = true;
+    setStatus('抽選中・・・');
 
     const { index: winningIndex, label: winningLabel } = window.Utils.decideWinningSlot(slots.labels);
     const offset = computeOffset(slots.labels.length, winningIndex);
@@ -105,7 +107,7 @@
     isSpinning = false;
     selectEl.disabled = false;
     spinBtn.disabled = false;
-    resultEl.textContent = `当選: ${label}`;
+    setStatus('確定しました');
   }
 
   selectEl.addEventListener('change', (e) => {
@@ -115,7 +117,7 @@
     currentRotation = 0;
     setupCanvasSize();
     drawWheel();
-    resetResult();
+    setStatus('スワイプでもボタンでも回せます');
   });
 
   spinBtn.addEventListener('click', () => {
@@ -151,7 +153,7 @@
   populateSelect();
   setupCanvasSize();
   drawWheel();
-  resetResult();
+  setStatus('スワイプでもボタンでも回せます');
 
   window.addEventListener('resize', () => {
     setupCanvasSize();
