@@ -128,11 +128,13 @@
 
   canvas.addEventListener('pointerdown', (e) => {
     if (isSpinning) return;
+    e.preventDefault();
     pointerStart = { y: e.clientY, time: performance.now() };
-  }, { passive: true });
+  });
 
   canvas.addEventListener('pointerup', (e) => {
     if (isSpinning || !pointerStart) return;
+    e.preventDefault();
     const distance = Math.abs(e.clientY - pointerStart.y);
     const duration = Math.max(1, performance.now() - pointerStart.time);
     const velocity = distance / duration;
@@ -143,7 +145,7 @@
     const spins = window.Utils.mapRange(clampedV, MIN_V, MAX_V, 5, 8);
     pointerStart = null;
     performSpin(spinMs, spins);
-  }, { passive: true });
+  });
 
   canvas.addEventListener('pointercancel', () => {
     pointerStart = null;
