@@ -1,0 +1,103 @@
+:root {
+  --bg: #f7f7f7;
+  --fg: #222;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+
+.header {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.main {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.canvas-wrap {
+  position: relative;
+  width: min(90vw, 360px);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#roulette-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  transform-origin: 50% 50%;
+}
+
+#pointer {
+  width: 42px;
+  height: 68px;
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: linear-gradient(160deg, #ff5f6d 0%, #ff9966 45%, #c0392b 100%);
+  clip-path: polygon(50% 0%, 78% 32%, 52% 100%, 22% 32%);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2), inset 0 -8px 12px rgba(0, 0, 0, 0.25), inset 0 10px 16px rgba(255, 255, 255, 0.25);
+  z-index: 2;
+}
+
+.spin-btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #333;
+  color: #fff;
+}
+
+.spin-btn:disabled {
+  opacity: 0.5;
+}
+
+.result {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+@media screen and (orientation: landscape) and (max-width: 768px) {
+  body::before {
+    content: "縦向きでの利用を推奨します";
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    z-index: 9999;
+    font-size: 16px;
+  }
+}
