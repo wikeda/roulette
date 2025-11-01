@@ -22,7 +22,8 @@ body {
 
 .controls {
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 50px;
   align-items: center;
   justify-content: center;
 }
@@ -70,7 +71,8 @@ body {
 }
 
 .spin-btn {
-  padding: 10px 16px;
+  padding: 10px 32px;
+  min-width: 200px;
   border-radius: 8px;
   border: none;
   background: #333;
@@ -79,6 +81,14 @@ body {
 
 .spin-btn:disabled {
   opacity: 0.5;
+}
+
+.status-message {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+  color: #666;
+  min-height: 20px;
 }
 
 .result {
