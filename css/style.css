@@ -119,11 +119,11 @@ body::before {
   top: -10%;
   left: 50%;
   transform: translate(-50%, 0);
-  background: linear-gradient(160deg, var(--gold-light) 0%, var(--gold) 45%, var(--gold-dark) 100%);
+  background: linear-gradient(160deg, #ff6b35 0%, #f44336 45%, #c62828 100%);
   clip-path: polygon(50% 0%, 78% 32%, 52% 100%, 22% 32%);
-  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.6), inset 0 -8px 12px rgba(0, 0, 0, 0.3), inset 0 10px 16px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 25px rgba(244, 67, 54, 0.6), inset 0 -8px 12px rgba(0, 0, 0, 0.4), inset 0 10px 16px rgba(255, 255, 255, 0.3);
   z-index: 2;
-  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.8));
+  filter: drop-shadow(0 0 12px rgba(244, 67, 54, 0.8));
 }
 
 .spin-btn {
@@ -174,36 +174,39 @@ body::before {
 #slot-count {
   padding: 12px 24px;
   border-radius: 8px;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  background: rgba(26, 26, 26, 0.8);
+  border: 2px solid var(--gold);
+  background: linear-gradient(135deg, rgba(10, 61, 33, 0.9) 0%, rgba(8, 51, 25, 0.95) 100%);
   color: var(--gold);
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.2);
 }
 
 #slot-count:hover {
-  border-color: var(--gold);
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+  border-color: var(--gold-light);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.3);
+  background: linear-gradient(135deg, rgba(10, 61, 33, 1) 0%, rgba(8, 51, 25, 1) 100%);
 }
 
 #slot-count:focus {
   outline: none;
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  border-color: var(--gold-light);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2), 0 6px 20px rgba(212, 175, 55, 0.3);
 }
 
 .status-message {
   text-align: center;
   margin-top: 12px;
-  font-size: 15px;
-  color: var(--text-secondary);
+  font-size: 17px;
+  color: var(--gold);
   min-height: 20px;
-  font-weight: 300;
-  letter-spacing: 1px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(212, 175, 55, 0.4), 0 0 20px rgba(212, 175, 55, 0.2);
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
 }
 
 .result {
